@@ -11,12 +11,29 @@
 <body>
     <h1>Notes</h1>
     <p>
-        Hello World!
-        I dont have any real notes yet.
+        Forms are contained in html as a form tag. They allow the user to input and trigger actions.
+        An example of a form in action is here in this search form.
     </p>
+    <form name='search' action='/search'>
+        <input name='searchInput'>
+        <button type='submit'>Search</button>
+    </form>
+    <p>
+        There are different effects that can be used on forms, such as focus, blur, and change.
+        The submit event can be used to get information entered in a form.
+
+        Object oriented programing in JS is structured using classes. Inheritance and public/private methods
+        are key to object oriented programing.
+    </p>
+    <script>
+    function search(event) {
+        alert(`You Searched for: ${searchInput.value}`);
+        event.preventDefault();
+    }
+    </script>
     <h1>Questions</h1>
     <p>
-        No questions this week.
+        How can I dynamically read from a js file? I've been looking on stack overflow for a while with no luck.
     </p>
 </body>
 
