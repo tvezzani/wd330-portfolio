@@ -1,0 +1,25 @@
+body{
+    background-color:rgb(45, 45, 45);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+button {
+    color: rgb(45, 45, 45);
+    border-radius: 5px;
+    background-color: white;
+    border-color: white;
+    padding: 5px;
+    font: inherit;
+    transition-duration: 0.5s;
+}
+
+button:hover{
+    color: white;
+    background-color: rgb(45, 45, 45);
+}

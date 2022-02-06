@@ -5,19 +5,222 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../main.css">
     <title>Week05</title>
+    <script>
+        function runWithStrictMode(){
+            'use strict';
+
+            var daysInYear = 365;
+            daysInWeek = 7;
+            alert('Days in year: ' + (daysInYear) + ' Days in week: ' + (daysInWeek));
+        }
+
+        function runWithoutStrictMode(){
+           var daysInYear = 365;
+            daysInWeek = 7;
+            alert('Days in year: ' + (daysInYear) + ' Days in week: ' + (daysInWeek));
+        }
+
+        function runConsoleLogWarnError(){
+           console.log('This is a log');
+           console.warn('This is a warning');
+           console.error('This is a error');
+        }
+
+        function throwError(){
+            var error = new Error('A Bad Error');
+            try{throw error} catch(error){console.log(error.message); alert(error.message)}
+        }
+
+        function throwAndCatchException(){
+            var err = new Error('A Really Bad Error');
+            try{throw err} catch(err){console.log('Caught ' + err.message); alert('Caught ' + err.message)}
+        }
+    </script>
 </head>
 
 <body>
     <h1>Notes</h1>
+    <div class="layout__panel layout__panel--preview" style="width: 100%; font-size: 18px;">
+        <div class="gutter" style="left: 0px;">
+           <!---->
+        </div>
+        <div class="preview">
+           <div class="preview__inner-1">
+              <div class="preview__inner-2" style="padding: 10px 25px 447px;">
+                 <div class="cl-preview-section">
+                    <h2 id="errors-exceptions-warnings">Errors, exceptions, warnings</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>Error<br>
+                          Something goes wrong with the system, the programmer(syntax or logic) or the user input.
+                       </li>
+                       <li>Exceptions<br>
+                          Something goes wrong with the system that you do not have control over and need to be prepared for. 3rd party services are common causes of exception errors due to the nature of depending on outside code.
+                       </li>
+                       <li>Warnings<br>
+                          Messages will be provided to the user to notify them of soft errors that wont crash the code. An example is when a certain functionality is deprecated, and will need to be replaced in the future.
+                       </li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="the-importance-of-testing-and-debugging">The importance of testing and debugging</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>Debugging is essential to fixing inevitable problems that will show up when implementing code.</li>
+                       <li>Testing helps developers to catch and avoid most bugs in code</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="strict-mode">Strict mode</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <p>Assists the developer in avoiding logic errors by encouraging better and clearer syntax by loging more errors.
+                        Example:
+                    </p>
+                    <button type="button" onclick="runWithStrictMode()">
+                        Example with strict
+                    </button>
+                    <button type="button" onclick="runWithoutStrictMode()">
+                        Example without strict
+                    </button>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="linting-tools">Linting Tools</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>Linting helps keep code clean</li>
+                       <li>Tells you when you have unused variables</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="feature-detection">Feature Detection</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>Browser specific features</li>
+                       <li>Detect the environment that the code is being run in</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="debugging-in-the-browser">Debugging in the browser</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>allows you to use breakpoints in the browser</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="the-trusty-alert">The Trusty Alert</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>allows you to pop up an alert in the browser</li>
+                       <li>done through alert();</li>
+                    </ul>
+                    <button type="button" onclick="alert('Hello World');">Try it!</button>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="using-the-console">Using the Console</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>console.log()</li>
+                       <li>console.warn() for depreciated features</li>
+                       <li>console.error() for errors (invalid credentials)</li>
+                    </ul>
+                    <button type="button" onclick="runConsoleLogWarnError()">Log to the console.</button>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="debugging-tools">Debugging Tools</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>debugger keyword creates a breakpoint in your code</li>
+                       <li>breakpoints help streamline error checking</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="error-objects">Error objects</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>error objects are error specific objects and there are different ones to choose from.</li>
+                       <li>The eval() function evaluates code</li>
+                       <li>Each error has a message property</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="throwing-exceptions">Throwing exceptions</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>using the throw keyword you can report an error in the console</li>
+                       <li>it is best practice to throw error objects</li>
+                       <li>catching an error prevents it from bubbling up in your console</li>
+                    </ul>
+                    <button type="button" onclick="throwError()">Throw an error.</button>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="exception-handling">Exception handling</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>try and catch are used in a function that catches an error</li>
+                       <li>A finally can be added after a catch block. It is run no matter what.</li>
+                    </ul>
+                    <button type="button" onclick="throwAndCatchException()">Throw and catch an exception.</button>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="tests">Tests</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>It is helpful to use tests to help guide code development</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="test-driven-development">Test-driven Development</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>The testing framework is created before any actual code</li>
+                       <li>One the testing is streamlined, the code is written until the tests pass</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="testing-frameworks">Testing frameworks</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <ul>
+                       <li>There are several testing frameworks, including Jest</li>
+                       <li>using the test() function, you can create a test, which is used to show a pass or fail</li>
+                    </ul>
+                 </div>
+                 <div class="cl-preview-section">
+                    <h2 id="our-project-―-well-add-some-log-messages-and-tests-to-the-quiz-ninja-application">Our project ― we’ll add some log messages and tests to the Quiz Ninja application</h2>
+                 </div>
+                 <div class="cl-preview-section">
+                    <p><a href="./quiz-ninja.html">Link to quiz ninja application</a></p>
+                 </div>
+              </div>
+              <div class="gutter" style="left: 0px;">
+                 <!----> <!---->
+              </div>
+           </div>
+           <!---->
+        </div>
+        <div class="gutter" style="left: 0px;">
+           <!----> <!---->
+        </div>
+     </div>    <h1>Questions</h1>
     <p>
-        Hello World!
-        I dont have any real notes yet.
-    </p>
-    <h1>Questions</h1>
-    <p>
-        No questions this week.
+        There are lots of different methods for error handling and debugging. How can you choose one method over the other?
     </p>
 </body>
-
+ 
 </html>
