@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./todo.css">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Todos</h2>
+
+      <ul id="myUL">
+        <li>Finish math assigment</li>
+        <li>Do finances</li>
+        <li>Go for a run</li>
+        <li>Fill car with gas</li>
+        <li>Watch episode of show</li>
+        <li>Do a journal entry</li>
+        <div id="divSelector" class="selector">
+        <div id="tasksLeft" class="itemOption">
+            <p>
+                3 tasks left
+            </p>
+        </div>
+        <div id="tasksLeft" class="itemOption">
+           <button class="btn">All</button>
+        </div>
+        <div id="tasksLeft" class="itemOption">
+              <button class="btn">Active</button>
+        </div>
+        <div id="tasksLeft" class="itemOption">
+             <button class="btn">Complete</button>
+        </div>
+        </div>
+      </ul>
+      <div id="myDIV" class="dataEntry" >
+        <input type="text" id="myInput" placeholder="Title...">
+        <span onclick="newElement()" class="btn">+</span>
+      </div>
+<script>
+// Create close button
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Hide an item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add checked symbol
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create new item
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("Please write something.");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
+      </script>
+</body>
+</html>

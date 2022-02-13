@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <title>6</title>
+    <script>
+        function runWithStrictMode(){
+            'use strict';
+
+            var daysInYear = 365;
+            daysInWeek = 7;
+            alert('Days in year: ' + (daysInYear) + ' Days in week: ' + (daysInWeek));
+        }
+
+        function runWithoutStrictMode(){
+           var daysInYear = 365;
+            daysInWeek = 7;
+            alert('Days in year: ' + (daysInYear) + ' Days in week: ' + (daysInWeek));
+        }
+
+        function runConsoleLogWarnError(){
+           console.log('This is a log');
+           console.warn('This is a warning');
+           console.error('This is a error');
+        }
+
+        function throwError(){
+            var error = new Error('A Bad Error');
+            try{throw error} catch(error){console.log(error.message); alert(error.message)}
+        }
+
+        function throwAndCatchException(){
+            var err = new Error('A Really Bad Error');
+            try{throw err} catch(err){console.log('Caught ' + err.message); alert('Caught ' + err.message)}
+        }
+    </script>
+</head>
+
+<body>
+   <h1>Notes</h1>
+   <button onclick="document.location='./quiz-ninja.html'">Link to Todo App</button>
+</body>
+ 
+</html>
