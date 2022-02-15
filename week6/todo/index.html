@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./todo.css">
+    <title>Document</title>
+</head>
+<body>
+  <div id="taskContainer">
+    <h2><center>Todos</center></h2>
+    <div id="taskListContainer">
+      <ul id="taskList">
+        <li>Task</li>
+        <li>Task</li>
+        <li>Task</li>
+        <li>Task</li>
+      </ul>
+      </div>
+    <div id ="bottomBar" class="bar">
+        <div id="tasksLeft" class="itemOption">
+          <p>
+              3 tasks left
+          </p>
+        </div>
+      <button class="btn active">All</button>
+      <button class="btn">Active</button>
+      <button class="btn">Complete</button>
+    </div>
+    <div id="footerBar" class="footer">
+      <!-- <input type="text" id="myInput" placeholder="Name..."> -->
+      <input type="text" id="todo_name_field" placeholder="Name...">
+      <!--<span onclick="newElement()" class="btn">+</span>-->
+      <button id="add_todo" class="btn">+</button>
+    </div>
+  <script type="module" src="main.js"></script>
+</body>
+</html>

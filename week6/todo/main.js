@@ -1,12 +1,14 @@
-// Create close button
-var myNodelist = document.getElementsByTagName("LI");
+import toDos from "./modules/toDos.js";
+
+/*// Create close button
+var taskList = document.getElementsByTagName("LI");
 var i;
-for (i = 0; i < myNodelist.length; i++) {
+for (i = 0; i < taskList.length; i++) {
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
   span.className = "close";
   span.appendChild(txt);
-  myNodelist[i].appendChild(span);
+  taskList[i].appendChild(span);
 }
 
 // Hide an item
@@ -38,7 +40,6 @@ function newElement() {
   } else {
     document.getElementById("myUL").appendChild(li);
   }
-  document.getElementById("myInput").value = "";
 
   var span = document.createElement("SPAN");
   var txt = document.createTextNode("\u00D7");
@@ -51,5 +52,33 @@ function newElement() {
       var div = this.parentElement;
       div.style.display = "none";
     }
+  }
+}*/
+
+//Create instance of ToDos object
+var _toDos =
+  new toDos(document.getElementById("taskList"),111);
+  _toDos.listToDos();
+console.log("Created toDoList");
+
+//Add listenter to add task button
+document.getElementById("add_todo").addEventListener("click", () => {
+  _toDos.addToDo();
+});
+
+// Hide an item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    console.warn('Clicked');
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
   }
 }
