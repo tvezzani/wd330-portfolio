@@ -9,6 +9,16 @@
     padding: 0;
   }
   
+  p {
+    margin: 3px;
+    padding: 10px;
+  }
+
+  span {
+    margin: 3px;
+    padding: 10px;
+    float: middle;
+  }
   /* Style the list items */
   ul li {
     cursor: pointer;
@@ -27,9 +37,9 @@
   }
   
   /* Set all odd list items to a different color (zebra-stripes) */
-  ul li:nth-child(odd) {
+  /*ul li:nth-child(odd) {
     background: #cadcf0;
-  }
+  }*?
   
   /* Darker background-color on hover */
   ul li:hover {
@@ -45,7 +55,7 @@
   
   /* Add a "checked" mark when clicked on */
   ul li.checked::before {
-    content: '';
+    content:'';
     position: absolute;
     border-color: #fff;
     border-style: solid;
@@ -63,28 +73,30 @@
     right: 0;
     top: 0;
     padding: 12px 16px 12px 16px;
+    font-size: large;
   }
   
   .close:hover {
-    background-color: #43baff;
+    background-color: rgb(218, 111, 62);
     color: white;
   }
   
-  /* Style the header */
-  .selector {
-    background-color: #bac9d1;
+  /* Style the bar */
+  .bar {
+    background-color: #ffffff;
     padding: 0;
     color: black;
     text-align: center;
     display: flex;
+    border: 1px solid black;
   }
   
-  /* Clear floats after the header */
-  .selector:after {
+  /* Clear floats after the input bar */
+  /*.selector:after {
     content: "";
     display: table;
     clear: both;
-  }
+  }*/
   
   /* Style the input */
   input {
@@ -101,15 +113,16 @@
   /* Style the "Add" button */
   .btn {
     padding: 10px;
-    background: lightgray;
+    margin: 3px;
+    background: white;
     color: #555;
-    float: left;
+    float: middle;
     text-align: center;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    /*transition: 0.3s;*/
     border-radius: 0;
-    border: none;
+    border: 1px solid white;
   }
   
   .btn:hover {
