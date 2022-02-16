@@ -93,10 +93,34 @@ function renderToDoList(list, element) {
         element.innerHTML += "<li id = " + _todo.id + isChecked + ">" 
         + _todo.content + "<span class = 'close'>\u00D7</span></li>";
     });
+
     //Update bottom bar text
-    let tasksLeft = document.getElementById("tasks-left");
-    //Filter list
+    let tasksLeft = document.getElementById("tasks_left");
     tasksLeft.innerText = getListByCompleted(false).length + " tasks left.";
+
+    //
+    let filterAll = document.getElementById("filter_all");
+    let filterActive = document.getElementById("filter_active");
+    let filterComplete = document.getElementById("filter_complete");
+
+    filterAll.className = "btn";
+    filterActive.className = "btn";
+    filterComplete.className = "btn";
+
+    if (filterString === "all"){
+        filterAll.className = "btn active";
+    }
+    else if (filterString === "active"){
+        filterActive.className = "btn active";
+    }
+    else if (filterString === "complete"){
+        filterComplete.className = "btn active";
+    }
+    else{
+        console.error('invalid filterString');
+    }
+
+    //Add listeners to dynamic list items and spans
     addListItemEventListeners(); 
  }
 
@@ -118,16 +142,16 @@ class toDos {
         //List the items
         listToDos() {
             let list = toDoList;
-            if (filterString == "all")
+            if (filterString === "all")
             {
                 //Do nothing
             }
-            else  if (filterString == "active")
+            else  if (filterString === "active")
             {
                 //Filter list
                 list = getListByCompleted(true);
             }
-            else if (filterString == "complete")
+            else if (filterString === "complete")
             {
                 //Filter list
                 list = getListByCompleted(false);
@@ -184,38 +208,6 @@ class toDos {
             localStorage.clear();
             console.log("local storage cleared");
         }
-                
-        /*
-        showToDos(all, active, completed){
-            const todosList = document.getElementById("todolist");
-            todosList.innerHTML = "";
-            this.renderTodolist(this.todos, todosList, all, active, completed);
-            this.countLeftTasks();
-        }
-        
-        renderTodolist(todoList, parent, all, active, completed){
-            if(all == true){
-            todoList.forEach(todo => {
-                parent.appendChild(this.renderTodoItem(todo));
-                this.countLeftTasks();
-            });
-            } else if(active == true){
-                todoList.forEach(todo => {
-                    if(todo.completed == false){
-                    parent.appendChild(this.renderTodoItem(todo));
-                    this.countLeftTasks();
-                    }
-                    });
-            } else {
-                todoList.forEach(todo => {
-                if(todo.completed == true){
-                    parent.appendChild(this.renderTodoItem(todo));
-                    this.countLeftTasks();
-                    }
-                });
-            }
-        
-        }*/
     }
 
 export default toDos;

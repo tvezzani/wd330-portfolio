@@ -69,16 +69,16 @@ document.getElementById("add_todo").addEventListener("click", () => {
 });
 
 //Add listenter to 'Active' filter button
-document.getElementById("all_filter").addEventListener("click", () => {
+document.getElementById("filter_all").addEventListener("click", () => {
   _toDos.filterToDos('all');
 });
 
 //Add listenter to 'Complete' filter button
-document.getElementById("active_filter").addEventListener("click", () => {
+document.getElementById("filter_active").addEventListener("click", () => {
   _toDos.filterToDos('active');
 });
 
 //Add listenter to add task button
-document.getElementById("complete_filter").addEventListener("click", () => {
+document.getElementById("filter_complete").addEventListener("click", () => {
   _toDos.filterToDos('complete');
 });
