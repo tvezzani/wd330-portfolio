@@ -93,8 +93,21 @@ function renderToDoList(list, element) {
         element.innerHTML += "<li id = " + _todo.id + isChecked + ">" 
         + _todo.content + "<span class = 'close'>\u00D7</span></li>";
     });
-    addListItemEventListeners();
+    //Update bottom bar text
+    let tasksLeft = document.getElementById("tasks-left");
+    //Filter list
+    tasksLeft.innerText = getListByCompleted(false).length + " tasks left.";
+    addListItemEventListeners(); 
  }
+
+function getListByCompleted(isComplete) {
+        //Filter list
+        let list = toDoList.filter(entry => {
+            const keep = entry.completed == isComplete;
+            return keep;
+            });
+    return list;
+}
 
 class toDos {
     constructor(element, key) {
@@ -112,18 +125,12 @@ class toDos {
             else  if (filterString == "active")
             {
                 //Filter list
-                list = toDoList.filter(entry => {
-                    const keep = entry.completed == true;
-                    return keep;
-                });
+                list = getListByCompleted(true);
             }
             else if (filterString == "complete")
             {
                 //Filter list
-                list = toDoList.filter(entry => {
-                    const keep = entry.completed == false;
-                    return keep;
-                });
+                list = getListByCompleted(false);
             }
             else
             {
