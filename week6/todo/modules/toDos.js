@@ -57,12 +57,15 @@ function renderToDoListItems() {
 
 function addCompleteEventListener(listItem){
     listItem.addEventListener("click", () => {
-        console.log(listItem.id);
-        const complete = toDoList.filter(entry => {
-            entry.id == listItem.id;
-            return entry.id;
+        //console.log(listItem.id);
+        toDoList.filter(entry => {
+            const keep = entry.id == listItem.closest('li').id;
+            if (keep) {
+                entry.completed = true;
+                console.log("Marked " + entry.content + " as complete.");
+            }
+            return keep;
         });
-        console.log('complete: ' + complete);
         renderToDoListItems();
     });
 }
@@ -82,6 +85,8 @@ function renderToDoList(list, element) {
     element.innerHTML = "";
     list.forEach(_todo => {
         var li = document.createElement("li");
+        let isChecked = "";
+        if (_todo.completed) isChecked = " class = 'checked' ";
         const newContent = document.createTextNode(_todo.content);
         li.appendChild(newContent);
         var span = document.createElement("SPAN");
@@ -89,19 +94,11 @@ function renderToDoList(list, element) {
         span.className = "close";
         span.appendChild(txt);
         li.appendChild(span);
-        element.innerHTML += "<li id = " + _todo.id + ">" 
+        element.innerHTML += "<li id = " + _todo.id + isChecked + ">" 
         + _todo.content + "<span class = 'close'>\u00D7</span></li>";
     });
     addListItemEventListeners();
  }
-
-// function removeItemOnce(arr, value) {
-//     var index = arr.indexOf(value);
-//     if (index > -1) {
-//       arr.splice(index, 1);
-//     }
-//     return arr;
-//   }
 
 class toDos {
     constructor(element, key) {

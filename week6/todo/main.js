@@ -66,10 +66,6 @@ var _toDos =
 //Add listenter to add task button
 document.getElementById("add_todo").addEventListener("click", () => {
   const newToDo = _toDos.addToDo();
-  // addListItemEventListeners(newToDo);
-  // setTimeout( () => {
-  // addListItemEventListeners(newToDo);
-  // }, 500);
 });
 
 //Add listenter to add task button
