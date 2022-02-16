@@ -24,14 +24,25 @@ function saveToDo(task, key) {
     return to_do;    
 }
 
+//Update todo list in local storage
+function updateToDoList(list, key) {
+    writeToLS(key, JSON.stringify(list));
+}
+
 //Get list of toDos
 function getToDos(key) {
-    // check the contents of todoList,
-    //a local variable containing a list of ToDos.
-    //If it is null then pull the list of todos from localstorage,
-    //update the local variable, and return it
-    return JSON.parse(readFromLS(key));
+    if (toDoList.length === 0) {
+        let temp;
+        temp = readFromLS(key);
+        if (temp !== null) {
+            console.log(temp.length);
+            return temp;
+        }
+        else{
+            return toDoList;
+        }
     }
+}
 
 //-----------------------------Refactor to removeToDo?
 function addButtonEventListener(button){
@@ -40,7 +51,6 @@ function addButtonEventListener(button){
                 const keep = entry.id != button.closest('li').id;
                 return keep;
             });
-            window.toDoList = toDoList;
             renderToDoListItems();
         });
     }
@@ -51,9 +61,14 @@ function renderToDoListItems() {
     _toDos.listToDos();
 }
 
+function completeToDoList() {
+    var _toDos =
+    new toDos(document.getElementById("taskList"),111);
+    _toDos.completeToDo();
+}
+
 function addCompleteEventListener(listItem){
     listItem.addEventListener("click", () => {
-        //console.log(listItem.id);
         toDoList.filter(entry => {
             const keep = entry.id == listItem.closest('li').id;
             if (keep) {
@@ -62,6 +77,7 @@ function addCompleteEventListener(listItem){
             }
             return keep;
         });
+        completeToDoList();
         renderToDoListItems();
     });
 }
@@ -129,8 +145,17 @@ function getListByCompleted(isComplete) {
         let list = toDoList.filter(entry => {
             const keep = entry.completed == isComplete;
             return keep;
-            });
+            }); 
     return list;
+}
+
+function initToDos(key) {
+    if (toDoList.length === 0)
+    {
+        let temp;
+        temp = readFromLS(key);
+        if (temp !== null) toDoList = temp;
+    }
 }
 
 class toDos {
@@ -141,6 +166,9 @@ class toDos {
 
         //List the items
         listToDos() {
+            initToDos(this.key);
+            //toDoList = getToDos(this.key);
+
             let list = toDoList;
             if (filterString === "all")
             {
@@ -170,13 +198,12 @@ class toDos {
             //Grab input from html where user enters task,
             //and send along with key to the saveTodo() functiuon
             let toDoName = document.getElementById("todo_name_field").value;
-            let newToDo;
             document.getElementById("todo_name_field").value="";
             if (toDoName == ''){
                 alert('Please enter a name.');
             }
             else{
-                newToDo = saveToDo(toDoName,this.key);
+                saveToDo(toDoName,this.key);
                 //display current list of tasks
                 this.listToDos();
             }
@@ -184,8 +211,8 @@ class toDos {
         
         //Add an item to the list
         completeToDo() {
-
-            //display current list of tasks
+            //Save completed todo
+            updateToDoList(toDoList,this.key);
             this.listToDos();
         }
         

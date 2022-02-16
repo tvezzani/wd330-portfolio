@@ -1,13 +1,12 @@
 
 function readFromLS(key) {
-    let data = localStorage.getItem(key);
-    //console.log('Successfully fetched ' + data + ' from ' + key);
-    return localStorage.getItem(key);
+    let data = JSON.parse(localStorage.getItem(key));
+    console.log('Successfully fetched ' + data.length + ' toDos from key ' + key);
+    return data;
   }
   
   function writeToLS(key, data) {
     localStorage.setItem(key, data);
-    //console.log('Successfully wrote ' + data + ' to ' + key);
   }
 
 export {

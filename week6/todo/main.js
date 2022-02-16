@@ -24,3 +24,8 @@ document.getElementById("filter_active").addEventListener("click", () => {
 document.getElementById("filter_complete").addEventListener("click", () => {
   _toDos.filterToDos('complete');
 });
+
+//Add listenter to clear local storage
+document.getElementById("clear_local_storage").addEventListener("click", () => {
+  _toDos.clearLocalStorage();
+});
