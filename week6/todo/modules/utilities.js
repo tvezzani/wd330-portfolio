@@ -8,7 +8,6 @@ function onTouch(elementSelector, callback) {
     console.log("called utilities.onTouch");
 }
 
-
 export {
     qs,
     onTouch
