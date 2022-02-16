@@ -63,26 +63,22 @@ var _toDos =
 
 //Add event listener for buttons all, active and complete-------------------------------------
 
-//Add listenter to add task button
+//Add listenter to 'All' filter button
 document.getElementById("add_todo").addEventListener("click", () => {
-  const newToDo = _toDos.addToDo();
+  _toDos.addToDo();
+});
+
+//Add listenter to 'Active' filter button
+document.getElementById("all_filter").addEventListener("click", () => {
+  _toDos.filterToDos('all');
+});
+
+//Add listenter to 'Complete' filter button
+document.getElementById("active_filter").addEventListener("click", () => {
+  _toDos.filterToDos('active');
 });
 
 //Add listenter to add task button
-// Array.from(document.querySelectorAll("span.close")).forEach(button => {
-//   button.addEventListener("click", () => {
-//     //_toDos.addToDo();
-//     console.log("deleting todo");
-//   });
-// });
-
-// // Hide an item
-// var close = document.getElementsByClassName("close");
-// var i;
-// for (i = 0; i < close.length; i++) {
-//   close[i].onclick = function() {
-//     console.warn('Clicked');
-//     var div = this.parentElement;
-//     div.style.display = "none";
-//   }
-// }
+document.getElementById("complete_filter").addEventListener("click", () => {
+  _toDos.filterToDos('complete');
+});

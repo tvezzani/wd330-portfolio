@@ -1,6 +1,6 @@
 function qs(selector) {
-    console.log("called utilities.qs");
     //Do stuff
+    console.log("called utilities.qs");
 }
 
 function onTouch(elementSelector, callback) {

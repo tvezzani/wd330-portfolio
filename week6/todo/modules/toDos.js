@@ -3,6 +3,7 @@ import { qs, onTouch } from "./utilities.js";
 
 //Variable for list of toDos
 let toDoList = [];
+let filterString = "all";
 
 //Class for toDo object
 class toDo {
@@ -34,17 +35,12 @@ function getToDos(key) {
 
 //-----------------------------Refactor to removeToDo?
 function addButtonEventListener(button){
-    //console.log(button);
     button.addEventListener("click", () => {
-        //_toDos.addToDo();
-        //console.log({button, text: button.closest('li').id});
             toDoList = toDoList.filter(entry => {
                 const keep = entry.id != button.closest('li').id;
-                // if (keep) renderToDoList(toDoList, button.closest('ul'))
                 return keep;
             });
             window.toDoList = toDoList;
-            //Just to pass reference to listToDos
             renderToDoListItems();
         });
     }
@@ -108,7 +104,34 @@ class toDos {
 
         //List the items
         listToDos() {
-            renderToDoList(toDoList,this.element);
+            let list = toDoList;
+            if (filterString == "all")
+            {
+                //Do nothing
+            }
+            else  if (filterString == "active")
+            {
+                //Filter list
+                list = toDoList.filter(entry => {
+                    const keep = entry.completed == true;
+                    return keep;
+                });
+            }
+            else if (filterString == "complete")
+            {
+                //Filter list
+                list = toDoList.filter(entry => {
+                    const keep = entry.completed == false;
+                    return keep;
+                });
+            }
+            else
+            {
+                console.error(
+                    "listToDos requires one of the following strings: 'all', 'active', or 'complete'."
+                    );
+            }
+            renderToDoList(list,this.element);
         }
         
         //Add an item to the list
@@ -135,20 +158,20 @@ class toDos {
             this.listToDos();
         }
         
-        //Add an item to the list
+        //Remove item from todo list
         removeToDo(id) {
             removeItemOnce(toDoList, id)
             console.log("remove to do was run");
             this.listToDos();
         }
         
-        //Add an item to the list
-        filterToDos() {
-
-            //display current list of tasks
+        //Filter items by type
+        filterToDos(filterName) {
+            filterString = filterName;
+            this.listToDos();
         }
 
-        //Add an item to the list
+        //Clear the storage
         clearLocalStorage() {
             //Dangerous but for debugging
             localStorage.clear();
