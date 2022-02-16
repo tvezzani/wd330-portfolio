@@ -149,12 +149,12 @@ class toDos {
             else  if (filterString === "active")
             {
                 //Filter list
-                list = getListByCompleted(true);
+                list = getListByCompleted(false);
             }
             else if (filterString === "complete")
             {
                 //Filter list
-                list = getListByCompleted(false);
+                list = getListByCompleted(true);
             }
             else
             {
