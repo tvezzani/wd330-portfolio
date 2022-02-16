@@ -59,26 +59,34 @@ function newElement() {
 var _toDos =
   new toDos(document.getElementById("taskList"),111);
   _toDos.listToDos();
-console.log("Created toDoList");
+//console.log("Created toDoList");
+
+//Add event listener for buttons all, active and complete-------------------------------------
 
 //Add listenter to add task button
 document.getElementById("add_todo").addEventListener("click", () => {
-  _toDos.addToDo();
+  const newToDo = _toDos.addToDo();
+  // addListItemEventListeners(newToDo);
+  // setTimeout( () => {
+  // addListItemEventListeners(newToDo);
+  // }, 500);
 });
 
-// Hide an item
-var close = document.getElementsByClassName("close");
-var i;
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    console.warn('Clicked');
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
-for (i = 0; i < close.length; i++) {
-  close[i].onclick = function() {
-    var div = this.parentElement;
-    div.style.display = "none";
-  }
-}
+//Add listenter to add task button
+// Array.from(document.querySelectorAll("span.close")).forEach(button => {
+//   button.addEventListener("click", () => {
+//     //_toDos.addToDo();
+//     console.log("deleting todo");
+//   });
+// });
+
+// // Hide an item
+// var close = document.getElementsByClassName("close");
+// var i;
+// for (i = 0; i < close.length; i++) {
+//   close[i].onclick = function() {
+//     console.warn('Clicked');
+//     var div = this.parentElement;
+//     div.style.display = "none";
+//   }
+// }
