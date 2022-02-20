@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <title>Week05</title>
+    <script>
+        function runWithStrictMode(){
+            'use strict';
+
+            var daysInYear = 365;
+            daysInWeek = 7;
+            alert('Days in year: ' + (daysInYear) + ' Days in week: ' + (daysInWeek));
+        }
+
+        function runWithoutStrictMode(){
+           var daysInYear = 365;
+            daysInWeek = 7;
+            alert('Days in year: ' + (daysInYear) + ' Days in week: ' + (daysInWeek));
+        }
+
+        function runConsoleLogWarnError(){
+           console.log('This is a log');
+           console.warn('This is a warning');
+           console.error('This is a error');
+        }
+
+        function throwError(){
+            var error = new Error('A Bad Error');
+            try{throw error} catch(error){console.log(error.message); alert(error.message)}
+        }
+
+        function throwAndCatchException(){
+            var err = new Error('A Really Bad Error');
+            try{throw err} catch(err){console.log('Caught ' + err.message); alert('Caught ' + err.message)}
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Notes</h1>
+<p>Chapter 11</p><p>Function properties and methods</p><p>Functions are object oriented so they have properties and methods inherently. For example, the length property. You can also call properties when calling a function. Memoization is a method of saving return value in a cache for later use.</p><p>Immediately Invoked function expressions</p><p>A function can be created that invokes itself, saving space. It can use temporary variables as well. The function can be initialized with a &lsquo;()&rsquo; at the end. Safe or strict mode can be utilized to to help ensure safer code. Functions can also run self contained functions code blocks.<br /> Self-defining functions</p><p>A function can redefine itself and run its altered version consecutively after the first. A function can also use a technique called init-time branching, which helps them to work better in a browser.<br /> Recursive functions</p><p>These functions call themselves repeatedly until a requirement is met. The syntax includes returning the function with a parameter at the end of the function.<br /> Callbacks</p><p>These functions help to create asynchronous behavior. The callback is given a time to countdown and then calls function. This can be dangerous if overused because too many different asynchronous tasks can hurt performance.<br /> Promises</p><p>A promise is another method of asynchronous behavior that can be helpful for waiting on a response. It uses a resolve and reject block that does something different for success or denial off the response.<br /> Async functions</p><p>Async functions use the await keyword to complete their block, with a try and catch block.<br /> Functions that return functions</p><p>As the name suggests, a function can return a function. This is done by declaring the function that is to be returned after the return keyword.<br /> Closures</p><p>Closures allow you to get a variable from inside a function which would otherwise be inaccessible.<br /> Introduction to functional programming</p><p>Functional programming is different from object oriented programing in a few ways. It depends on parameters <br /> Currying</p><p>A curried function helps to migrate an old function&rsquo;s arguments to a new function and apply them.<br /> Project ― improve some of the functions using techniques from this chapter</p><p>Chapter 13</p><p>Clients and servers<br /> Clients and servers are used for sharing resources over the internet. A client can make a data request to a server at any time the server is live. This is how most modern websites typically work. Often all of the data is not stored locally on a web server, but is securely stored in a database, which requires authentication to retrieve. AJAX functions allow you to fetch data from another data source directly in your JavaScript, since it is primarily designed as a server side language.</p><p>A brief history of Ajax<br /> Ajax method was coined by James Garrett in 2005, drawing from the asynchronous techniques of the time.</p><p>Communicating with the server using the Fetch API<br /> The Fetch API is a standard for getting data from a location and making requests simpler than they had been before.</p><p>Receiving data with Ajax<br /> When receiving a response from a fetch, it gives you a response code to communicate the status. Typically a response is held in the form of a JSON file.</p><p>Sending data with Ajax<br /> Data is prepared by being packed into a JSON and sent over the network through a POST method.</p><p>Form data<br /> Form data is a method of communicating data in a more streamlined way that makes it much more convenient to send.</p><p>Our project ― obtain questions using Ajax</p>
+    <h1>Questions</h1>
+        <p>
+            There are lots of different methods for error handling and debugging. How can you choose one method over the other?
+        </p>
+</body>
+ 
+</html>
