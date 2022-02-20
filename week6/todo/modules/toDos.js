@@ -51,6 +51,7 @@ function addButtonEventListener(button){
                 const keep = entry.id != button.closest('li').id;
                 return keep;
             });
+            updateToDoList(toDoList, 111);
             renderToDoListItems();
         });
     }
@@ -154,7 +155,12 @@ function initToDos(key) {
     {
         let temp;
         temp = readFromLS(key);
-        if (temp !== null) toDoList = temp;
+        if (temp !== null) {
+            toDoList = temp;
+        }
+        else {
+            toDoList = [];
+        }
     }
 }
 
@@ -209,7 +215,7 @@ class toDos {
             }
         }
         
-        //Add an item to the list
+        //Mark an item on the list
         completeToDo() {
             //Save completed todo
             updateToDoList(toDoList,this.key);
