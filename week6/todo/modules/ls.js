@@ -1,7 +1,12 @@
 
 function readFromLS(key) {
     let data = JSON.parse(localStorage.getItem(key));
-    console.log('Successfully fetched ' + data.length + ' toDos from key ' + key);
+    if (data !== null){
+      console.log('Successfully fetched ' + data.length + ' toDos from key ' + key);
+    }
+    else{
+      console.log('Local storage is null at key ' + key);
+    }
     return data;
   }
   
