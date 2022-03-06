@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <title>Week09</title>
+</head>
+
+<body>
+<p style='margin:0in;font-size:37px;font-family:"Calibri Light",sans-serif;'>Notes</p>
+<h1 style='margin-top:12.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:21px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>The Window Object</h1>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The window object is represented by the browser window containing the page.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>The Browser Object Model</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Known as <strong>BOM</strong> for short, it contains methods returning information about the browser and the computer screen. It can also function using the window object. For example, in the window, you can set a variable such as<strong>&nbsp;x = 5</strong>. This can be retrieved by calling <strong>window.x</strong>.</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Alert, confirm, and prompt can be called through the window object. Alert will popup a message. Confirm will show a cancel/okay dialogue. The prompt dialogue allows the user to enter information into a popup.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Finding out browser information</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>You can find browser information. One example is typing <strong>window.navigator.userAgent</strong> which returns the kind of browser being used. Using href returns the direct link. Protocol returns the protocol. Host returns the site name. hostname returns the domain. Port returns the port. Pathname returns a path. Search allows you to search, using a query. Hash returns the fragment identifier if there is any. Origin returns the domains of the current page&rsquo;s origin. You can redirect with <strong>window.location.assign()</strong>. <strong>toString</strong> returns a string with the whole url.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Browser history</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>History length shows how many pages have been visited before. Go is a function that takes you to the page based on the integer, 0 reloading the current page, 1 going forward and -1 going backward. You can also use forward() and back() to do the same thing.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Controlling windows</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Window open() can open a url, with specific size and setting parameters. The close() method can close a popup. Window resizeTo() can manipulate the size of a window. AvailHeight and availWidth are helpful to read width and height. The colorDepth method returns the color depth.</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The document object allows you to write to the HTML document.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Cookies</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Cookies are saved locally to help sites remember settings and user preferences effortlessly. The are very small in size, limited to 4KB of data, and only 20 cookies per domain. You can create a cookie by using the document object, by using <strong>document.cookie = &ldquo;some text&rdquo;;&nbsp;</strong>Editing cookie values is as simple as rewriting the cookie. Reading them is done through entering<strong>&nbsp;document.cookie</strong>, and you can write code to break down the string. Cookies are automatically deleted upon session close, but they can be set to persist through the <strong>setTime(new Date)</strong> method.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Timing functions</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>There are functions that can count down, like the <strong>setTimeout()</strong> function. This will call when the time is up. You can clear the alert before it is called through <strong>clearTimeout()</strong> The <strong>setInterval()</strong> method will be called repeatedly.<strong>&nbsp;</strong>Similar to the clear timeout function, <strong>clearInterval()&nbsp;</strong>clears an interval timer.</p>
+<h1 style='margin-top:12.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:21px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>HTML5 APIs</h1>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>HTML5 is the latest version of Hypertext Markup Language currently available. With APIs, you can extend its use to virtually infinite applications.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>The development of HTML5 and the JavaScript APIs</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>While there is future development planed for HTML5, it is supposed to have long term support. HTML 5.2 is under development and can be followed until it is finished.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>The&nbsp;data-&nbsp;attribute</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>This attribute allows you to embed data in a web page. You can do this through<strong>&nbsp;data-name = &lsquo;bob&rsquo;</strong>. This exposed attributes to be accessed through the dataset attribute.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>HTML5 APIs―local storage, geolocation, web workers, and multimedia</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The web storage API allows you to store a key value datastore on the clients computer, without the hassle of cookies. The data limit is much higher than cookies, at 5 GB per domain. The local Storage object allows you to do this. The methods are as follows with set item, get item, remove item, and clear.</p>
+<h1>Questions</h1>
+    <p>
+        Is using the localStorage API a reccomended practice? Or is it safer to use a remote database?
+    </p>
+</body>
+ 
+</html>
