@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="../main.css">
+    <title>Week10</title>
+</head>
+
+<body>
+    <p style='margin:0in;font-size:37px;font-family:"Calibri Light",sans-serif;'>Client-side form validation</p>
+    <h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>What is form validation?</h2>
+    <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Form validation is the process of ensuring correctly formatted data is entered on the client side. A common method of this includes showing error messages directly on the form which specify the format required. This is done so that our application works properly, our users are protected, and we are protected. Weak passwords can cause our users to be hacked, and unchecked malicious entries can cause us to be hacked. Even so, a good server practice is to never trust data passed from a client alone, since a hacker can change the data after the request.</p>
+    <h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Different types of client-side validation</h2>
+    <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The 2 kings of form validation are first, built-in form validation with HTML5 validation features, and second, JavaScript validation, which must be implemented from scratch, or use an external library.</p>
+    <h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Using built-in form validation</h2>
+    <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Key terms to be used are as follows:</p>
+    <ul style="list-style-type: disc;">
+        <li>required: specifies if a field must be filled in order to submit the form</li>
+        <li>minlength: specifies the min length of a textual input</li>
+        <li>maxlength: specifies the max value of a textual input</li>
+        <li>min: specifies the min value of a numerical input</li>
+        <li>max: specifies the max value of a numerical input</li>
+        <li>type: specifies data type</li>
+        <li>pattern: takes a regular expression with which to test the input</li>
+    </ul>
+    <h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Validating forms using JavaScript</h2>
+    <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Constraint validation API contains methods and properties for the element DOM as follows:</p>
+    <ul style="list-style-type: disc;">
+        <li>HTMLButtonElement: represents a &lt;button&gt; element</li>
+        <li>HTMLFieldSetElement: represents a &lt;fieldset&gt; element</li>
+        <li>HTMLInputElement: represents an &lt;input&gt; element</li>
+        <li>HTMLOutputElement: represents an &lt;output&gt; element</li>
+        <li>HTMLSelectElement: represents a &lt;select&gt; element</li>
+        <li>HTMLTextAreaElement: represents a &lt;textarea&gt; element</li>
+    </ul>
+    <p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The following properties and methods are made available for the above elements:</p>
+    <ul style="list-style-type: disc;">
+        <li>validationMessage: returns message about validation constraints that the input doesn&rsquo;t satisfy</li>
+        <li>validity: returns a ValidityState object</li>
+        <li>patternMismatch: returns true if the value does not match the pattern</li>
+        <li>tooLong: returns true if value is longer than allowed length</li>
+        <li>tooShort: returns false if value is longer than allowed length</li>
+        <li>rangeOverflow: returns true if the value is greater than the maximum value</li>
+        <li>rangeUnderflow: returns true if the value is smaller than the minimum value</li>
+        <li>typeMismatch: returns true if the value is not in the required syntax</li>
+        <li>valid: returns true if the element meets all validation constraints</li>
+        <li>valueMissing: returns true if a required attribute is missing a value</li>
+        <li>willValidate: returns true if the form will be validated upon submission</li>
+        <li>checkValidity(): returns true if the element&rsquo;s value has no issues</li>
+        <li>reportValidity(): reports invalid fields through events</li>
+        <li>setCustomValidity(message): creates a custom error message and adds it to the element.</li>
+    </ul>
+    
+<h1>Questions</h1>
+    <p>
+        No Questions this week.
+    </p>
+</body>
+ 
+</html>
