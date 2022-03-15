@@ -53,10 +53,38 @@
         <li>reportValidity(): reports invalid fields through events</li>
         <li>setCustomValidity(message): creates a custom error message and adds it to the element.</li>
     </ul>
-    
+    <p style='margin:0in;font-size:37px;font-family:"Calibri Light",sans-serif;'>Using the Fetch API</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The fetch API allows JavaScript to retrieve data from a remote server. It differs from AJAX because it will not reject on HTTP error status even if the response is 404 or 500. It will resolve normally unless anything prevented the request from completing.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Supplying request options</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The fetch() method allows a second parameter, in addition to the URL, which is an init object allowing you to control several different settings.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Sending a request with credentials included</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The following will allow browsers to send a request with credentials.</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>fetch(&apos;https://example.com&apos;, {</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp; credentials: &apos;include&apos;</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>});</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>You can also use the term &lsquo;same-origin&rsquo;, which sends credentials on the same origin, or &lsquo;omit&rsquo;, which doesn&rsquo;t use credentials.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Uploading JSON data</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Using the fetch term to POST some JSON data, you can specify the JSON being sent, and stringify it.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Uploading a file</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>You must specify the input as type=&ldquo;file&rdquo;, then you can use the document query selector to select the file. The method used can be POST or PUT, and the data can be saved locally on the server.</p>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>&nbsp;</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Uploading multiple files</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Uploading multiple files is the same logic, however the input type must be specified as &lsquo;type=&rdquo;file&rdquo; multiple&rsquo; Then, you can write an iterator to upload each photo individually.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Processing a text file line by line</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Typically reading line by line is more complex, and you have to implement reading line boundaries on your own.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Checking that the fetch was successful</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>A fetch is a promise object that will reject with a TypeError, which can be caught to report the bug. A 404 error is still a successful fetch and will be reported as such. The Response.ok bool returns true if the promise has been resolved and there are no problems with the response.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Supplying your own request object</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>A Request() object is formatted specifically the way you design it, and can be passed to a fetch method. This makes the code look a bit cleaner.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Headers</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>A header object can be created with the Headers() constructor. It is a map of names and values. The data from the header object can be queried and read.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Response objects</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>The Response object gives status of the fetch request. Response.status can return the status code, 200 by default, 201 if successful, 404 if request could not be found, and 500 if there was a network problem. There are several other codes used. Response.statusText returns a string about the HTTP status code message. Response.ok is a Boolean that checks if the status code is between 200-299.</p>
+<h2 style='margin-top:2.0pt;margin-right:0in;margin-bottom:0in;margin-left:0in;line-height:107%;font-size:17px;font-family:"Calibri Light",sans-serif;color:#2F5496;font-weight:normal;'>Body</h2>
+<p style='margin-top:0in;margin-right:0in;margin-bottom:8.0pt;margin-left:0in;line-height:107%;font-size:15px;font-family:"Calibri",sans-serif;'>Requests and responses can contain body data, such as form data. They can be sent using aprameters that specify body: form, for example.</p>
 <h1>Questions</h1>
     <p>
-        No Questions this week.
+        If it is not reccomended to rely on client-side validation, then how can you ensure that the input does not allow malicious code to gain access to your server?
     </p>
 </body>
  
