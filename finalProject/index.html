@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div class="centered">
+      <h1 class="top-of-recipes">My Recipes</h1>
+      <button onclick="document.location='#new-recipe'">New Recipe</button>
+      <div id="recipe-list-container"></div>
+      <button id="clear-local-storage">Clear Storage</button>
+    </div>
+    <!-- This is the recipe enter form -->
+    <div id="new-recipe" class="centered new-recipe">
+      <h1>New Recipe</h1>
+      <label for="title">*Title</label><br />
+      <input id="recipe-title" type="text" placeholder="i.e. Cake" /><br />
+      <label for="prep-time">Prep Time (in minutes)</label><br />
+      <input
+        id="recipe-prep-time"
+        type="text"
+        placeholder="i.e. 15"
+      /><br />
+      <label for="cook-time">Cook Time (in minutes)</label><br />
+      <input
+        id="recipe-cook-time"
+        type="text"
+        placeholder="i.e. 20"
+      /><br />
+      <label for="image-url">Image URL</label><br />
+      <input
+        id="recipe-image-url"
+        type="text"
+        placeholder="Enter a valid image URL"
+      /><br />
+      <label for="ingredients">*Ingredients</label><br />
+      <input
+        id="recipe-ingredients"
+        type="text"
+        placeholder="i.e. 2 Eggs, 1 cup flour, 1 cup sugar..."
+      /><br />
+      <label for="instrucitons">Instructions</label><br />
+      <textarea
+        id="recipe-instructions"
+        placeholder="i.e. Preheat oven to 375 degrees. Bake for 20 minues..."
+      ></textarea
+      ><br />
+      * all required fields must be filled out.<br />
+      <button id="add-recipe">Submit</button>
+    </div>
+    <script type="module" src="main.js"></script>
+  </body>
+</html>
