@@ -2,7 +2,6 @@ import { readFromLS, writeToLS } from "./ls.js";
 
 //Variable for list of toDos
 let recipeList = [];
-let nutritionalData = [];
 
 //Class for toDo object
 class recipe {
@@ -34,7 +33,7 @@ function saveRecipe(
   cookTime,
   imageURL,
   ingredients,
-  directions,
+  instructions,
   nutritionalFacts,
   key
 ) {
@@ -46,7 +45,7 @@ function saveRecipe(
     cookTime,
     imageURL,
     ingredients,
-    directions,
+    instructions,
     nutritionalFacts
   );
   recipeList.push(_recipe);
@@ -85,15 +84,6 @@ function initRecipes(key) {
   }
 }
 
-// function addListItemEventListeners(){
-//     const listItems = Array.from(/*use qs here*/document.querySelectorAll('#taskList li'));
-//     listItems.forEach(listItem => {
-//         const button = listItem.querySelector('span.close');
-//         addButtonEventListener(button);
-//         addCompleteEventListener(listItem);
-//     });
-// }
-
 //Render recipe list
 function renderRecipeList(list, element) {
   if (list.length === 0) {
@@ -120,8 +110,8 @@ function renderRecipeList(list, element) {
         _recipe.prepTime +
         "</p><p>Ingredients: " +
         _recipe.ingredients +
-        "</p><p>Directions: " +
-        _recipe.directions +
+        "</p><p>Instructions: " +
+        _recipe.instructions +
         "</p><p>Nutritional Facts: " +
         _recipe.nutritionalFacts +
         "</div>";
@@ -147,19 +137,46 @@ let testPayload = {
   ],
 };
 
-async function fetchNutritionalData(payload) {
+function generatePayload() {
+  const recipe = getRecipeDetails();
+  return {
+    title: recipe.recipeTitle,
+    yield: "About 4 servings",
+    ingr: recipe.recipeIngredients.split(/[\n\r]+/)
+  }
+}
+
+function getRecipeDetails() {
+  let recipeTitle = document.getElementById("recipe-title").value;
+  let recipePrepTime = document.getElementById("recipe-prep-time").value;
+  let recipeCookTime = document.getElementById("recipe-cook-time").value;
+  let recipeImageURL = document.getElementById("recipe-image-url").value;
+  let recipeIngredients = document.getElementById("recipe-ingredients").value;
+  let recipeInstructions = document.getElementById(
+    "recipe-instructions"
+  ).value;
+  return { recipeTitle, recipePrepTime, recipeCookTime, recipeImageURL, recipeIngredients, recipeInstructions };
+}
+
+function fetchNutritionalData(payload) {
   const url = `${apiURL}${appId}&app_key=${apiKey}`;
-  console.log("Payload: " + JSON.stringify(payload));
-  const response = await fetch(url, {
+  return fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(payload),
-  });
-  // wait till it comes through
-  nutritionalData = response.json();
-  console.log(nutritionalData);
+  })
+    .then(response => {
+      if (response.status == 200) {
+        return response.json();
+      }
+      return Promise.reject(new Error("Did not recieve the data"));
+    })
+    .catch(error => {
+      console.error(error)
+      return Promise.resolve({});
+    });
 }
 
 class recipes {
@@ -180,14 +197,7 @@ class recipes {
   addRecipe() {
     //Grab input from html where user enters task,
     //and send along with key to the saveTodo() functiuon
-    let recipeTitle = document.getElementById("recipe-title").value;
-    let recipePrepTime = document.getElementById("recipe-prep-time").value;
-    let recipeCookTime = document.getElementById("recipe-cook-time").value;
-    let recipeImageURL = document.getElementById("recipe-image-url").value;
-    let recipeIngredients = document.getElementById("recipe-ingredients").value;
-    let recipeInstructions = document.getElementById(
-      "recipe-instructions"
-    ).value;
+    const { recipeTitle, recipeIngredients, recipeImageURL, recipePrepTime, recipeCookTime, recipeInstructions } = getRecipeDetails();
 
     //REQUIRED: TITLE, INGREDIENTS
     if (recipeTitle == "") {
@@ -202,39 +212,32 @@ class recipes {
       }
 
       //Get nutritional facts
-      fetchNutritionalData(testPayload);
-      setTimeout('', 5000);
-      console.log(nutritionalData.calories);
-      //Clear fields
-      document.getElementById("recipe-title").value = "";
-      document.getElementById("recipe-prep-time").value = "";
-      document.getElementById("recipe-cook-time").value = "";
-      document.getElementById("recipe-image-url").value = "";
-      document.getElementById("recipe-ingredients").value = "";
-      document.getElementById("recipe-instructions").value = "";
-      //Save recipe
-      saveRecipe(
-        recipeTitle,
-        recipePrepTime,
-        recipeCookTime,
-        recipeImageURL,
-        recipeIngredients,
-        recipeInstructions,
-        nutritionalData.calories,
-        this.key
-      );
-      //display current list of tasks
-      this.listRecipes();
-      window.scrollTo(top);
+      fetchNutritionalData(generatePayload())
+      .then(nutritionalData => {
+        //Clear fields
+        document.getElementById("recipe-title").value = "";
+        document.getElementById("recipe-prep-time").value = "";
+        document.getElementById("recipe-cook-time").value = "";
+        document.getElementById("recipe-image-url").value = "";
+        document.getElementById("recipe-ingredients").value = "";
+        document.getElementById("recipe-instructions").value = "";
+        //Save recipe
+        saveRecipe(
+          recipeTitle,
+          recipePrepTime,
+          recipeCookTime,
+          recipeImageURL,
+          recipeIngredients,
+          recipeInstructions,
+          nutritionalData.calories,
+          this.key
+        );
+        //display current list of tasks
+        this.listRecipes();
+        window.scrollTo(top);
+      });
     }
   }
-
-  // //Remove item from todo list
-  // removeToDo(id) {
-  //     removeItemOnce(recipeList, id)
-  //     console.log("remove to do was run");
-  //     this.listToDos();
-  // }
 
   //Clear the storage
   clearLocalStorage() {
